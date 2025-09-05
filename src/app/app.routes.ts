@@ -1,5 +1,3 @@
-// import { Routes } from '@angular/router';
-
 export const routes: Routes = [];
 import { Routes } from '@angular/router';
 import { WhyMeComponent } from './components/why-me/why-me.component';
@@ -8,7 +6,8 @@ import { DaBubbleComponent } from './components/projects/da-bubble/da-bubble.com
 import { ElPolloLocoComponent } from './components/projects/el-pollo-loco/el-pollo-loco.component';
 import { JoinComponent } from './components/projects/join/join.component';
 import { PokedexComponent } from './components/projects/pokedex/pokedex.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { ImpressumComponent } from './components/impressum/impressum.component';
+import { AgbComponent } from './components/agb/agb.component';
 
 
 export const APP_ROUTES: Routes = [
@@ -18,6 +17,8 @@ export const APP_ROUTES: Routes = [
 { path: 'projects/el-pollo-loco', component: ElPolloLocoComponent },
 { path: 'projects/join', component: JoinComponent },
 { path: 'projects/pokedex', component: PokedexComponent },
-{ path: 'contact', component: ContactComponent },
-{ path: '**', redirectTo: '' }
+{ path: '', pathMatch: 'full', redirectTo: '' },
+{ path: 'impressum', component: ImpressumComponent },
+{ path: 'agb', component: AgbComponent },
+{ path: '**', redirectTo: '' },
 ];
