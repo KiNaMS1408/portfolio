@@ -1,0 +1,35 @@
+from graphviz import Digraph
+
+# Diagramm 1: Router-Events + async Pipe
+router_diagram = Digraph("RouterFlow", format="png")
+router_diagram.attr(rankdir="TB", size="8")
+
+router_diagram.node("User", "[Benutzer klickt auf Link]", shape="box", style="filled", fillcolor="#d1e7dd")
+router_diagram.node("Router", "Angular Router\n- NavigationEnd", shape="box", style="filled", fillcolor="#f8d7da")
+router_diagram.node("AppTS", "AppComponent (TS)\n- this.router.events\n- pipe(filter/map)\n- isStartseite$: Observable", shape="box", style="filled", fillcolor="#cff4fc")
+router_diagram.node("AppHTML", "AppComponent (HTML)\n- *ngIf=\"isStartseite$ | async\"\n- zeigt Sektionen oder RouterOutlet", shape="box", style="filled", fillcolor="#fff3cd")
+router_diagram.node("Browser", "[User sieht Inhalte im Browser]", shape="box", style="filled", fillcolor="#e2e3e5")
+
+router_diagram.edges([("User","Router"),("Router","AppTS"),("AppTS","AppHTML"),("AppHTML","Browser")])
+
+router_path = "/mnt/data/router_flow"
+router_diagram.render(router_path, cleanup=True)
+
+
+# Diagramm 2: Reactive Forms Flow
+forms_diagram = Digraph("FormsFlow", format="png")
+forms_diagram.attr(rankdir="TB", size="8")
+
+forms_diagram.node("Input", "[Benutzer tippt in <input>]", shape="box", style="filled", fillcolor="#d1e7dd")
+forms_diagram.node("HTML", "Template (HTML)\n- <form [formGroup]>\n- <input formControl>", shape="box", style="filled", fillcolor="#f8d7da")
+forms_diagram.node("TS", "Component (TS)\n- this.fb.group({})\n- contactForm: FormGroup", shape="box", style="filled", fillcolor="#cff4fc")
+forms_diagram.node("Module", "ReactiveFormsModule\n- Import in AppConfig oder AppModule", shape="box", style="filled", fillcolor="#fff3cd")
+forms_diagram.node("Service", "Service (TS)\n- sendMessage(payload)\n- nutzt HttpClient", shape="box", style="filled", fillcolor="#e2e3e5")
+forms_diagram.node("Backend", "[Backend / API bekommt Daten]", shape="box", style="filled", fillcolor="#d1e7dd")
+
+forms_diagram.edges([("Input","HTML"),("HTML","TS"),("TS","Module"),("TS","Service"),("Service","Backend")])
+
+forms_path = "/mnt/data/forms_flow"
+forms_diagram.render(forms_path, cleanup=True)
+
+(router_path + ".png", forms_path + ".png")

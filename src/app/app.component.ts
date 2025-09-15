@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet} from "@angular/router";
+import { filter } from "rxjs/operators";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ProjectsComponent } from "./components/projects/projects.component";
@@ -17,4 +18,13 @@ import { ContactComponent } from "./components/contact/contact.component";
 })
 export class AppComponent {
   title = 'portfolio';
+    isStartseite = true;
+
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.isStartseite = event.urlAfterRedirects === '/';
+    });
+  }
 }
