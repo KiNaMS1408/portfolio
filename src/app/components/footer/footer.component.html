@@ -1,9 +1,14 @@
-<!-- <p>footer works!</p> -->
 <footer>
   <p>&copy; 2025 Mein Portfolio</p>
   <nav>
-    <a routerLink="/" routerLinkActive="active">Startseite</a>
-    <span> | </span>
-    <a routerLink="/impressum" routerLinkActive="active">Impressum</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Startseite
+    </a> |
+    <a routerLink="/impressum" routerLinkActive="active">
+      Impressum
+    </a> |
+    <a routerLink="/agb" routerLinkActive="active">
+      AGB
+    </a>
   </nav>
 </footer>
