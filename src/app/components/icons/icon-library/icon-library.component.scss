@@ -1,0 +1,22 @@
+.icon-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: #89BCD9;
+    
+  }
+    &:hover {
+      transform: scale(2);
+      fill: #0077b5;
+    }
+}
