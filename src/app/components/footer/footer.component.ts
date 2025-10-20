@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { IconLibraryComponent } from '../icons/icon-library/icon-library.component';
+import { DeviceService } from '../../services/device.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,5 +11,5 @@ import { IconLibraryComponent } from '../icons/icon-library/icon-library.compone
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
+  device = inject(DeviceService);
 }

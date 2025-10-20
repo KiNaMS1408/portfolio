@@ -1,0 +1,20 @@
+<div 
+  class="hover-image-container"
+  (mouseenter)="isHovered.set(true)"
+  (mouseleave)="isHovered.set(false)"
+>
+  <img
+    class="image default"
+    [src]="defaultSrc"
+    [alt]="alt"
+    [class.hidden]="isHovered()"
+    [style.transition]="'opacity ' + transitionDuration + ' ' + transitionTiming"
+  />
+  <img
+    class="image hover"
+    [src]="hoverSrc"
+    [alt]="alt"
+    [class.visible]="isHovered()"
+    [style.transition]="'opacity ' + transitionDuration + ' ' + transitionTiming"
+  />
+</div>

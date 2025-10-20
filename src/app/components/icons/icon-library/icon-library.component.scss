@@ -1,22 +1,65 @@
-.icon-container {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
+// @use 'sass:colors'; 
+@use 'colors' as *;
+@use 'main' as *;
 
-.icon {
+
+
+:host {
   display: inline-flex;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 50%;
+  transition:
+    transform 10.25s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+  background-color: transparent;
 
-  svg {
-    width: 30px;
-    height: 30px;
-    fill: #89BCD9;
-    
+
+  svg path {
+    fill: $color-bg-text;
+    stroke: $color-bg-text;
+    transition: fill 0.3s ease, stroke 0.3s ease;
   }
-    &:hover {
-      transform: scale(2);
-      fill: #0077b5;
+
+  &:hover {
+    transform: scale(1.08);
+    background-color: $color-bg-button-hover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
+
+    svg path {
+      fill: $color-text-hover;
+      stroke: $color-text-hover;
     }
+  }
+
+  // --- when activ ( while clickt or focused with tab) ---
+  &:active,
+  &:focus-visible {
+    outline: none;
+    transform: scale(0.95);
+    background-color: $color-bg-text;
+    box-shadow: 0 0 0 3px $color-text-hover inset;
+
+    svg path {
+      fill: $color-bg-page;
+      stroke: $color-bg-page;
+    }
+  }
+  
+  // --- when disabled --- 
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+
+    svg path {
+    // fill: color.mix($color-bg-text, $color-bg-page, 70%);
+    fill: red;
+    }
+  }
 }

@@ -10,15 +10,24 @@
     <a routerLink="/agb" routerLinkActive="active">
       AGB
     </a>
-      <a href="https://github.com/deinname" target="_blank">
-    <app-icon-library name="github" variant="dark"></app-icon-library>
-  </a>
-  <a href="https://linkedin.com/in/deinname" target="_blank">
-    <app-icon-library name="linkedin" variant="dark"></app-icon-library>
-  </a>
-  <a href="mailto:deinmail@example.com">
-    <app-icon-library name="mail" variant="dark"></app-icon-library>
-  </a>
   </nav>
+    <div class="social-icons">
+    @if (device.mobile()) {
+      <app-icon-library name="github" variant="mobile" />
+      <app-icon-library name="linkedin" variant="mobile" />
+      <app-icon-library name="mail" variant="mobile" />
+    } @else {
+      <app-icon-library name="github" variant="dark" />
+      <app-icon-library name="linkedin" variant="hover" />
+      <app-icon-library name="mail" variant="mobile" />
+    }
+  </div>
 
+  @if (device.mobile()) {
+  <div class="mobile-menu">📱 Mobile Menü</div>
+} @else if (device.tablet()) {
+  <div class="tablet-menu">💻 Tablet Menü</div>
+} @else {
+  <div class="desktop-menu">🖥️ Desktop Menü</div>
+}
 </footer>

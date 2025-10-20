@@ -1,0 +1,21 @@
+// 🎨 === main-color ===
+$color-bg-page: rgba(38, 46, 52, 1);           // main-background & textcolor
+$color-bg-text: rgba(137, 188, 217, 1);        // text-background
+$color-text-hover: rgba(248, 245, 236, 1);     // hover & active textcolor
+$color-bg-button-hover: rgba(38, 46, 52, 0.12);// button-background while hover
+$color-error: rgba(228, 76, 54, 1);            // error
+$color-success: rgba(151, 225, 99, 1);         // success
+
+// 🌅 alternate colorthemes
+// 🌅 theme 1
+$theme-1: (
+  bg-page: rgba(4, 38, 57, 1),
+  bg-text: rgba(242, 138, 98, 1),
+  text-hover: rgba(248, 245, 236, 1),
+);
+// 🌿 theme 2
+$theme-2: (
+  bg-page: rgba(10, 56, 63, 1),
+  bg-text: rgba(249, 203, 113, 1),
+  text-hover: rgba(255, 255, 255, 1),
+);

@@ -1,7 +1,4 @@
-// ✅ Einfach und korrekt:
 @use 'colors' as *;
-@use 'main' as *;
-
 
 :root {
   --color-bg-page: #{$color-bg-page};
@@ -12,37 +9,38 @@
   --color-success: #{$color-success};
 }
 
+// Globale Basisregeln
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  color: var(--color-bg-page);
-  background-color: var(--color-bg-text);
+  color: var(--color-bg-text);
+  background-color: var(--color-bg-page);
   line-height: 1.5;
   scroll-behavior: smooth;
 }
 
 a {
-  color: $color-bg-text;
+  color: var(--color-bg-text);
   text-decoration: none;
   transition: color 0.3s ease;
 
   &:hover,
   &:focus {
-    color: --color-text-hover;
+    color: var(--color-text-hover);
   }
 }
 
 button {
   background-color: transparent;
-  border: 1px solid $color-bg-text;
-  color: --color-text-hover;
+  border: 1px solid var(--color-bg-text);
+  color: var(--color-bg-text);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: $color-bg-button-hover;
+    background-color: var(--color-bg-button-hover);
   }
 
   &:disabled {
@@ -53,25 +51,23 @@ button {
 
 input,
 textarea {
-  border: 1px solid $color-bg-text;
-  background-color: --color-text-hover;
-  color: white; // $color-bg-text;
+  border: 1px solid var(--color-bg-text);
+  background-color: var(--color-bg-page);
+  color: var(--color-bg-text);
   padding: 0.5rem;
   border-radius: 6px;
   outline: none;
   transition: border-color 0.2s ease;
 
   &:focus {
-    border-color: $color-bg-text;
+    border-color: var(--color-text-hover);
   }
 
   &.error {
-    border-color: $color-error;
+    border-color: var(--color-error);
   }
 
   &.success {
-    border-color: $color-success;
+    border-color: var(--color-success);
   }
 }
-
-
