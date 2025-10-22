@@ -1,7 +1,7 @@
 @use 'colors' as *;
 @use 'main' as *;
 
-.header{
+.header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -11,14 +11,14 @@
     color: #F8F5EC;
 }
 
-.img-hover-bg{
+.img-hover-bg {
     z-index: 1;
     transition: all 0.3s ease;
     position: relative;
     top: 0;
-    left: 0;
+    left: 10%;
 
-    img{
+    img {
         object-fit: cover;
         transition: all .7s ease;
 
@@ -26,8 +26,8 @@
         justify-content: center;
         align-items: center;
     }
-    
-    .me{
+
+    .me {
         width: 200px;
         position: relative;
         top: 0;
@@ -36,41 +36,67 @@
         z-index: 2;
         pointer-events: none;
     }
-    
-    .ellipse35{
+
+    .ellipse35 {
         width: 200px;
         position: absolute;
         top: 60px;
         left: 0px;
-        
         z-index: -1;
         transition: all .7s ease;
     }
-    
-    
-    :hover img{
+
+    :hover img {
         filter: blur(0px);
         scale: 2.1;
     }
 }
 
-.headerContent{
+.headerContent {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: fit-content;
-    transition: all 1.3s ease;
-
+    width: 50vw;
+    min-height: 300px;
+    flex-direction: column;
 }
 
-.center{
+.headerContent>div {
+    position: relative;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
 }
 
-.developer{
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.social-icons-top {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons-top app-icon-library {
+    transition: transform 0.3s ease;
+}
+
+.social-icons-top app-icon-library:hover {
+    // transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+.developer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,52 +106,57 @@
     p {
         margin: 0;
         padding: 0;
-        color: url($color-bg-text);
+        color: $color-bg-text;
         font-family: anta;
-
     }
-
 }
 
-.github{
-    :hover{
+.social-icons-top {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.github {
+    :hover {
         cursor: pointer;
-        scale: 1.2;
+        // scale: 1.2;
     }
 
 }
 
-.arrowDown{
+.arrowDown {
     rotate: 180deg;
     display: flex;
     align-items: center;
     width: fit-content;
-    
-    img{
+
+    img {
         margin-top: 10px;
         color: #F8F5EC;
         transition: all .7s ease;
         max-height: 48px;
     }
-    :hover{
+
+    :hover {
         cursor: pointer;
         color: #26c1ff;
         scale: 1.2;
     }
-    :hover path, rect{
+
+    :hover path,
+    rect {
         scale: unset;
 
     }
-    .scaleUnset{
-        scale: unset;
-    }    
 
+    .scaleUnset {
+        scale: unset;
+    }
 }
 
-
-
-.burgerMenu{
-        position: fixed;
+.burgerMenu {
+    position: fixed;
     top: 30px;
     right: 30px;
 }

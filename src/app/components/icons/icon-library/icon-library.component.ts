@@ -45,12 +45,12 @@ export class IconLibraryComponent {
 
     // uses the input variant or resolves based on device type
   finalVariant = computed(() => {
-    if (this.isHovered()) return 'hover'; // Hover hat Priorität
+    if (this.isHovered()) return 'hover'; // hover has the highest priority
 
-    // falls Variante manuell gesetzt wurde (z. B. "dark")
+    // if a variant is manually set (e.g., "dark")
     if (this.variant && this.variant !== 'default') return this.variant;
 
-    // falls nix angegeben: Gerät entscheidet
+    // if nothing is set, determine based on device type
     if (this.deviceService.mobile()) return 'mobile';
     if (this.deviceService.tablet()) return 'default';
     if (this.deviceService.desktop()) return 'default';

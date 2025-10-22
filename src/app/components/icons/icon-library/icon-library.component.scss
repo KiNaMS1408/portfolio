@@ -37,13 +37,10 @@
     }
   }
 
-  // --- when activ ( while clickt or focused with tab) ---
   &:active,
   &:focus-visible {
     outline: none;
     transform: scale(0.95);
-    background-color: $color-bg-text;
-    box-shadow: 0 0 0 3px $color-text-hover inset;
 
     svg path {
       fill: $color-bg-page;
@@ -51,7 +48,6 @@
     }
   }
   
-  // --- when disabled --- 
   &.disabled {
     cursor: not-allowed;
     opacity: 0.6;

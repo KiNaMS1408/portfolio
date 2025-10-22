@@ -1,0 +1,53 @@
+.developer {
+  font-family: Anta;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  user-select: none;
+  scale: 0.8;
+
+  svg {
+    overflow: visible;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
+    scale: 0.8;
+    font-family: Anta;
+  }
+
+  .developerName {
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+  }
+
+  .developerFullName {
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+  }
+
+  .animated-line {
+    transform-origin: center;
+  }
+
+  &:hover {
+    .animated-line {
+      animation: pulseLine .7s ease-in-out;
+    }
+  }
+
+  @keyframes pulseLine {
+    0% {
+      transform: scaleX(1);
+    }
+
+    50% {
+      transform: scaleX(1.15);
+    }
+
+    100% {
+      transform: scaleX(1);
+    }
+  }
+}

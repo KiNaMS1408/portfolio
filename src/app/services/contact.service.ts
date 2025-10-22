@@ -16,7 +16,7 @@ constructor(private http: HttpClient) {}
 
 
 sendMessage(payload: ContactPayload): Observable<any> {
-// Ersetze dies mit deiner echten API oder einem Mock-Endpoint
+// reprlace with your real API or a mock endpoint
 return this.http.post(this.endpoint, payload);
 }
 }
